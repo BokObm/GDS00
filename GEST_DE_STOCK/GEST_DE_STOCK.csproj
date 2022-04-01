@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{932E9755-8B8A-4686-BE43-1079656E6C5E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GEST_DE_STOCK</RootNamespace>
+    <AssemblyName>GEST_DE_STOCK</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>C:\Users\PC\Downloads\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\ConnexionCls.cs" />
+    <Compile Include="Client.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Commande.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseStock.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseStock.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseStock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseStock.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseStock.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Employe.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fournisseur.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ligne_commande.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ligne_livraison.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ligne_vente.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Livraison.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+
+    <Compile Include="PL\ClientFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\ClientFrm.Designer.cs">
+      <DependentUpon>ClientFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CommandeFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\CommandeFrm.Designer.cs">
+      <DependentUpon>CommandeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ConnexionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ConnexionFrm.Designer.cs">
+      <DependentUpon>ConnexionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FournisseurFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\FournisseurFrm.Designer.cs">
+      <DependentUpon>FournisseurFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\LivraisonFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\LivraisonFrm.Designer.cs">
+      <DependentUpon>LivraisonFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\MenuFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\MenuFrm.Designer.cs">
+      <DependentUpon>MenuFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ProduitFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\ProduitFrm.Designer.cs">
+      <DependentUpon>ProduitFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\VenteFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\VenteFrm.Designer.cs">
+      <DependentUpon>VenteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produit.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vente.cs">
+      <DependentUpon>DataBaseStock.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PL\ClientFrm.resx">
+      <DependentUpon>ClientFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CommandeFrm.resx">
+      <DependentUpon>CommandeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ConnexionFrm.resx">
+      <DependentUpon>ConnexionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FournisseurFrm.resx">
+      <DependentUpon>FournisseurFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\LivraisonFrm.resx">
+      <DependentUpon>LivraisonFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\MenuFrm.resx">
+      <DependentUpon>MenuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ProduitFrm.resx">
+      <DependentUpon>ProduitFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\VenteFrm.resx">
+      <DependentUpon>VenteFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="DataBaseStock.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBaseStock.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataBaseStock.edmx.diagram">
+      <DependentUpon>DataBaseStock.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close%281%291.png" />
+    <None Include="Resources\close5.png" />
+    <None Include="Resources\close4.png" />
+    <None Include="Resources\closeh.png" />
+    <None Include="Resources\closeupp %282%29.png" />
+    <None Include="Resources\closeupp1.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\keywhite1.png" />
+    <None Include="Resources\keywhite.png" />
+    <None Include="Resources\key3.png" />
+    <None Include="Resources\key2.png" />
+    <None Include="Resources\key1.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\closeupp.png" />
+    <None Include="Resources\closeup.png" />
+    <None Include="Resources\nada.png" />
+    <None Include="Resources\doodad1.png" />
+    <None Include="Resources\close3.png" />
+    <None Include="Resources\close2.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\doodad.png" />
+    <None Include="Resources\closea.png" />
+    <None Include="Resources\close22.png" />
+    <None Include="Resources\closee.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\close%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBaseStock.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseStock.edmx</DependentUpon>
+      <LastGenOutput>DataBaseStock.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBaseStock.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseStock.edmx</DependentUpon>
+      <LastGenOutput>DataBaseStock.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\galerie1.png" />
+    <None Include="Resources\livraison-de-la-commande1.png" />
+    <None Include="Resources\open-box.png" />
+    <None Include="Resources\vente.png" />
+    <None Include="Resources\list88.png" />
+    <None Include="Resources\list000.png" />
+    <None Include="Resources\listonhover.png" />
+    <None Include="Resources\list1.png" />
+    <None Include="Resources\list.png" />
+    <None Include="Resources\menusize5.png" />
+    <None Include="Resources\menusize10 %282%29.png" />
+    <None Include="Resources\costumer.png" />
+    <None Include="Resources\menusize10.png" />
+    <None Include="Resources\open-box_size50.png" />
+    <None Include="Resources\trade.png" />
+    <None Include="Resources\supprimer.png" />
+    <None Include="Resources\supprimer %281%29.png" />
+    <None Include="Resources\produit.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\livraison-de-la-commande.png" />
+    <None Include="Resources\lhorloge.png" />
+    <None Include="Resources\fournisseur.png" />
+    <None Include="Resources\enregistrer-le-fichier.png" />
+    <None Include="Resources\employes.png" />
+    <None Include="Resources\employes %283%29.png" />
+    <None Include="Resources\employes %282%29.png" />
+    <None Include="Resources\employes %281%29.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\crayon.png" />
+    <None Include="Resources\compte.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\client.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\ajouter-un-bouton.png" />
+    <None Include="Resources\ajouter-un-bouton %281%29.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\pin-code.png" />
+    <None Include="Resources\usernew.png" />
+    <None Include="Resources\exitsmall.png" />
+    <None Include="Resources\exit1%282%291.png" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\key %282%292.png" />
+    <None Include="Resources\key %282%291.png" />
+    <None Include="Resources\key5.png" />
+    <None Include="Resources\key %282%29.png" />
+    <None Include="Resources\key4.png" />
+    <None Include="Resources\keypass.png" />
+    <None Include="Resources\exit1%282%29.png" />
+    <None Include="Resources\exit1%281%29.png" />
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

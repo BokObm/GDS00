@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GEST_DE_STOCKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_client" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prenom_client" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tel_client" Type="int" Nullable="false" />
+          <Property Name="Email_client" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adresse_client" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Ville_client" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="ID_commande" />
+          </Key>
+          <Property Name="ID_commande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_employe" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Date_commande" Type="date" Nullable="false" />
+          <Property Name="ID_fournisseur" Type="int" Nullable="false" />
+          <Property Name="montant_commande" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="ID_employe" />
+          </Key>
+          <Property Name="ID_employe" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Mdp_user" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Statut_user" Type="bit" Nullable="false" />
+          <Property Name="Nom_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prenom_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="ID_fournisseur" />
+          </Key>
+          <Property Name="ID_fournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_fournisseur" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adresse_fournisseur" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Mail_fournisseur" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ligne_commande">
+          <Key>
+            <PropertyRef Name="ID_ligne_commande" />
+          </Key>
+          <Property Name="ID_ligne_commande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_commande" Type="int" Nullable="false" />
+          <Property Name="ID_produit" Type="int" Nullable="false" />
+          <Property Name="Qunatite_commande" Type="int" Nullable="false" />
+          <Property Name="Prix_produit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ligne_livraison">
+          <Key>
+            <PropertyRef Name="ID_ligne_livraison" />
+          </Key>
+          <Property Name="ID_ligne_livraison" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_livraison" Type="int" Nullable="false" />
+          <Property Name="ID_ligne_commande" Type="int" Nullable="false" />
+          <Property Name="Qunatite_livraison" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ligne_vente">
+          <Key>
+            <PropertyRef Name="ID_ligne_vente" />
+          </Key>
+          <Property Name="ID_ligne_vente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_vente" Type="int" Nullable="false" />
+          <Property Name="ID_produit" Type="int" Nullable="false" />
+          <Property Name="Quantite_vente" Type="int" Nullable="false" />
+          <Property Name="Prix_produit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Livraison">
+          <Key>
+            <PropertyRef Name="ID_livraison" />
+          </Key>
+          <Property Name="ID_livraison" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_employe" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID_commande" Type="int" Nullable="false" />
+          <Property Name="Date_commande" Type="date" Nullable="false" />
+          <Property Name="Heure_commande" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="ID_produit" />
+          </Key>
+          <Property Name="ID_produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_produit" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Date_entrée_stock" Type="date" Nullable="false" />
+          <Property Name="Qte_produit" Type="int" Nullable="false" />
+          <Property Name="Prix_produit" Type="int" Nullable="false" />
+          <Property Name="Image_produit" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vente">
+          <Key>
+            <PropertyRef Name="ID_vente" />
+          </Key>
+          <Property Name="ID_vente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_client" Type="int" Nullable="false" />
+          <Property Name="ID_employe" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Date_vente" Type="date" Nullable="false" />
+          <Property Name="Heure_vente" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Prix_vente" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Commande_IDemploye">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID_employe" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_IDfournisseur">
+          <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="1" />
+          <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="ID_fournisseur" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_fournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LigneCommande_IDcommande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="Ligne_commande" Type="Self.Ligne_commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_commande" />
+            </Principal>
+            <Dependent Role="Ligne_commande">
+              <PropertyRef Name="ID_commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LigneCommande_IDproduit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Ligne_commande" Type="Self.Ligne_commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_produit" />
+            </Principal>
+            <Dependent Role="Ligne_commande">
+              <PropertyRef Name="ID_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignelivraison_IDlignecommande">
+          <End Role="Ligne_commande" Type="Self.Ligne_commande" Multiplicity="1" />
+          <End Role="Ligne_livraison" Type="Self.Ligne_livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ligne_commande">
+              <PropertyRef Name="ID_ligne_commande" />
+            </Principal>
+            <Dependent Role="Ligne_livraison">
+              <PropertyRef Name="ID_ligne_commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignelivraison_IDlignelivraison">
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="1" />
+          <End Role="Ligne_livraison" Type="Self.Ligne_livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Livraison">
+              <PropertyRef Name="ID_livraison" />
+            </Principal>
+            <Dependent Role="Ligne_livraison">
+              <PropertyRef Name="ID_livraison" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignevente_IDproduit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Ligne_vente" Type="Self.Ligne_vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_produit" />
+            </Principal>
+            <Dependent Role="Ligne_vente">
+              <PropertyRef Name="ID_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignevente_IDvente">
+          <End Role="Vente" Type="Self.Vente" Multiplicity="1" />
+          <End Role="Ligne_vente" Type="Self.Ligne_vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vente">
+              <PropertyRef Name="ID_vente" />
+            </Principal>
+            <Dependent Role="Ligne_vente">
+              <PropertyRef Name="ID_vente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Livraison_IDcommande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_commande" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="ID_commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Livraison_IDemploye">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID_employe" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="ID_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vente_IDclient">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_client" />
+            </Principal>
+            <Dependent Role="Vente">
+              <PropertyRef Name="ID_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vente_IDemploye">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID_employe" />
+            </Principal>
+            <Dependent Role="Vente">
+              <PropertyRef Name="ID_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GEST_DE_STOCKModelStoreContainer">
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ligne_commande" EntityType="Self.Ligne_commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ligne_livraison" EntityType="Self.Ligne_livraison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ligne_vente" EntityType="Self.Ligne_vente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Livraison" EntityType="Self.Livraison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vente" EntityType="Self.Vente" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Commande_IDemploye" Association="Self.FK_Commande_IDemploye">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Commande" EntitySet="Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commande_IDfournisseur" Association="Self.FK_Commande_IDfournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseur" />
+            <End Role="Commande" EntitySet="Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LigneCommande_IDcommande" Association="Self.FK_LigneCommande_IDcommande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Ligne_commande" EntitySet="Ligne_commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LigneCommande_IDproduit" Association="Self.FK_LigneCommande_IDproduit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Ligne_commande" EntitySet="Ligne_commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignelivraison_IDlignecommande" Association="Self.FK_Lignelivraison_IDlignecommande">
+            <End Role="Ligne_commande" EntitySet="Ligne_commande" />
+            <End Role="Ligne_livraison" EntitySet="Ligne_livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignelivraison_IDlignelivraison" Association="Self.FK_Lignelivraison_IDlignelivraison">
+            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Ligne_livraison" EntitySet="Ligne_livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignevente_IDproduit" Association="Self.FK_Lignevente_IDproduit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Ligne_vente" EntitySet="Ligne_vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignevente_IDvente" Association="Self.FK_Lignevente_IDvente">
+            <End Role="Vente" EntitySet="Vente" />
+            <End Role="Ligne_vente" EntitySet="Ligne_vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Livraison_IDcommande" Association="Self.FK_Livraison_IDcommande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Livraison" EntitySet="Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Livraison_IDemploye" Association="Self.FK_Livraison_IDemploye">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Livraison" EntitySet="Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vente_IDclient" Association="Self.FK_Vente_IDclient">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Vente" EntitySet="Vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vente_IDemploye" Association="Self.FK_Vente_IDemploye">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Vente" EntitySet="Vente" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GEST_DE_STOCKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_client" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom_client" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel_client" Type="Int32" Nullable="false" />
+          <Property Name="Email_client" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresse_client" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ville_client" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vente" Relationship="Self.FK_Vente_IDclient" FromRole="Client" ToRole="Vente" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="ID_commande" />
+          </Key>
+          <Property Name="ID_commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_employe" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_commande" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_fournisseur" Type="Int32" Nullable="false" />
+          <Property Name="montant_commande" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employe" Relationship="Self.FK_Commande_IDemploye" FromRole="Commande" ToRole="Employe" />
+          <NavigationProperty Name="Fournisseur" Relationship="Self.FK_Commande_IDfournisseur" FromRole="Commande" ToRole="Fournisseur" />
+          <NavigationProperty Name="Ligne_commande" Relationship="Self.FK_LigneCommande_IDcommande" FromRole="Commande" ToRole="Ligne_commande" />
+          <NavigationProperty Name="Livraison" Relationship="Self.FK_Livraison_IDcommande" FromRole="Commande" ToRole="Livraison" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="ID_employe" />
+          </Key>
+          <Property Name="ID_employe" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mdp_user" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Statut_user" Type="Boolean" Nullable="false" />
+          <Property Name="Nom_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom_user" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK_Commande_IDemploye" FromRole="Employe" ToRole="Commande" />
+          <NavigationProperty Name="Livraison" Relationship="Self.FK_Livraison_IDemploye" FromRole="Employe" ToRole="Livraison" />
+          <NavigationProperty Name="Vente" Relationship="Self.FK_Vente_IDemploye" FromRole="Employe" ToRole="Vente" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="ID_fournisseur" />
+          </Key>
+          <Property Name="ID_fournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_fournisseur" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresse_fournisseur" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail_fournisseur" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK_Commande_IDfournisseur" FromRole="Fournisseur" ToRole="Commande" />
+        </EntityType>
+        <EntityType Name="Ligne_commande">
+          <Key>
+            <PropertyRef Name="ID_ligne_commande" />
+          </Key>
+          <Property Name="ID_ligne_commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_commande" Type="Int32" Nullable="false" />
+          <Property Name="ID_produit" Type="Int32" Nullable="false" />
+          <Property Name="Qunatite_commande" Type="Int32" Nullable="false" />
+          <Property Name="Prix_produit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK_LigneCommande_IDcommande" FromRole="Ligne_commande" ToRole="Commande" />
+          <NavigationProperty Name="Produit" Relationship="Self.FK_LigneCommande_IDproduit" FromRole="Ligne_commande" ToRole="Produit" />
+          <NavigationProperty Name="Ligne_livraison" Relationship="Self.FK_Lignelivraison_IDlignecommande" FromRole="Ligne_commande" ToRole="Ligne_livraison" />
+        </EntityType>
+        <EntityType Name="Ligne_livraison">
+          <Key>
+            <PropertyRef Name="ID_ligne_livraison" />
+          </Key>
+          <Property Name="ID_ligne_livraison" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_livraison" Type="Int32" Nullable="false" />
+          <Property Name="ID_ligne_commande" Type="Int32" Nullable="false" />
+          <Property Name="Qunatite_livraison" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ligne_commande" Relationship="Self.FK_Lignelivraison_IDlignecommande" FromRole="Ligne_livraison" ToRole="Ligne_commande" />
+          <NavigationProperty Name="Livraison" Relationship="Self.FK_Lignelivraison_IDlignelivraison" FromRole="Ligne_livraison" ToRole="Livraison" />
+        </EntityType>
+        <EntityType Name="Ligne_vente">
+          <Key>
+            <PropertyRef Name="ID_ligne_vente" />
+          </Key>
+          <Property Name="ID_ligne_vente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_vente" Type="Int32" Nullable="false" />
+          <Property Name="ID_produit" Type="Int32" Nullable="false" />
+          <Property Name="Quantite_vente" Type="Int32" Nullable="false" />
+          <Property Name="Prix_produit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produit" Relationship="Self.FK_Lignevente_IDproduit" FromRole="Ligne_vente" ToRole="Produit" />
+          <NavigationProperty Name="Vente" Relationship="Self.FK_Lignevente_IDvente" FromRole="Ligne_vente" ToRole="Vente" />
+        </EntityType>
+        <EntityType Name="Livraison">
+          <Key>
+            <PropertyRef Name="ID_livraison" />
+          </Key>
+          <Property Name="ID_livraison" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_employe" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_commande" Type="Int32" Nullable="false" />
+          <Property Name="Date_commande" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Heure_commande" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK_Livraison_IDcommande" FromRole="Livraison" ToRole="Commande" />
+          <NavigationProperty Name="Employe" Relationship="Self.FK_Livraison_IDemploye" FromRole="Livraison" ToRole="Employe" />
+          <NavigationProperty Name="Ligne_livraison" Relationship="Self.FK_Lignelivraison_IDlignelivraison" FromRole="Livraison" ToRole="Ligne_livraison" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="ID_produit" />
+          </Key>
+          <Property Name="ID_produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_produit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_entrée_stock" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Qte_produit" Type="Int32" Nullable="false" />
+          <Property Name="Prix_produit" Type="Int32" Nullable="false" />
+          <Property Name="Image_produit" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Ligne_commande" Relationship="Self.FK_LigneCommande_IDproduit" FromRole="Produit" ToRole="Ligne_commande" />
+          <NavigationProperty Name="Ligne_vente" Relationship="Self.FK_Lignevente_IDproduit" FromRole="Produit" ToRole="Ligne_vente" />
+        </EntityType>
+        <EntityType Name="Vente">
+          <Key>
+            <PropertyRef Name="ID_vente" />
+          </Key>
+          <Property Name="ID_vente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_client" Type="Int32" Nullable="false" />
+          <Property Name="ID_employe" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_vente" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Heure_vente" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Prix_vente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Vente_IDclient" FromRole="Vente" ToRole="Client" />
+          <NavigationProperty Name="Employe" Relationship="Self.FK_Vente_IDemploye" FromRole="Vente" ToRole="Employe" />
+          <NavigationProperty Name="Ligne_vente" Relationship="Self.FK_Lignevente_IDvente" FromRole="Vente" ToRole="Ligne_vente" />
+        </EntityType>
+        <Association Name="FK_Vente_IDclient">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_client" />
+            </Principal>
+            <Dependent Role="Vente">
+              <PropertyRef Name="ID_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_IDemploye">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID_employe" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_IDfournisseur">
+          <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="1" />
+          <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="ID_fournisseur" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_fournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LigneCommande_IDcommande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="Ligne_commande" Type="Self.Ligne_commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_commande" />
+            </Principal>
+            <Dependent Role="Ligne_commande">
+              <PropertyRef Name="ID_commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Livraison_IDcommande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_commande" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="ID_commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Livraison_IDemploye">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID_employe" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="ID_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vente_IDemploye">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID_employe" />
+            </Principal>
+            <Dependent Role="Vente">
+              <PropertyRef Name="ID_employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LigneCommande_IDproduit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Ligne_commande" Type="Self.Ligne_commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_produit" />
+            </Principal>
+            <Dependent Role="Ligne_commande">
+              <PropertyRef Name="ID_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignelivraison_IDlignecommande">
+          <End Role="Ligne_commande" Type="Self.Ligne_commande" Multiplicity="1" />
+          <End Role="Ligne_livraison" Type="Self.Ligne_livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ligne_commande">
+              <PropertyRef Name="ID_ligne_commande" />
+            </Principal>
+            <Dependent Role="Ligne_livraison">
+              <PropertyRef Name="ID_ligne_commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignelivraison_IDlignelivraison">
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="1" />
+          <End Role="Ligne_livraison" Type="Self.Ligne_livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Livraison">
+              <PropertyRef Name="ID_livraison" />
+            </Principal>
+            <Dependent Role="Ligne_livraison">
+              <PropertyRef Name="ID_livraison" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignevente_IDproduit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Ligne_vente" Type="Self.Ligne_vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_produit" />
+            </Principal>
+            <Dependent Role="Ligne_vente">
+              <PropertyRef Name="ID_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lignevente_IDvente">
+          <End Role="Vente" Type="Self.Vente" Multiplicity="1" />
+          <End Role="Ligne_vente" Type="Self.Ligne_vente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vente">
+              <PropertyRef Name="ID_vente" />
+            </Principal>
+            <Dependent Role="Ligne_vente">
+              <PropertyRef Name="ID_vente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GEST_DE_STOCKEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Commande" EntityType="Self.Commande" />
+          <EntitySet Name="Employe" EntityType="Self.Employe" />
+          <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" />
+          <EntitySet Name="Ligne_commande" EntityType="Self.Ligne_commande" />
+          <EntitySet Name="Ligne_livraison" EntityType="Self.Ligne_livraison" />
+          <EntitySet Name="Ligne_vente" EntityType="Self.Ligne_vente" />
+          <EntitySet Name="Livraison" EntityType="Self.Livraison" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" />
+          <EntitySet Name="Vente" EntityType="Self.Vente" />
+          <AssociationSet Name="FK_Vente_IDclient" Association="Self.FK_Vente_IDclient">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Vente" EntitySet="Vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commande_IDemploye" Association="Self.FK_Commande_IDemploye">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Commande" EntitySet="Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commande_IDfournisseur" Association="Self.FK_Commande_IDfournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseur" />
+            <End Role="Commande" EntitySet="Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LigneCommande_IDcommande" Association="Self.FK_LigneCommande_IDcommande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Ligne_commande" EntitySet="Ligne_commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Livraison_IDcommande" Association="Self.FK_Livraison_IDcommande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Livraison" EntitySet="Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Livraison_IDemploye" Association="Self.FK_Livraison_IDemploye">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Livraison" EntitySet="Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vente_IDemploye" Association="Self.FK_Vente_IDemploye">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Vente" EntitySet="Vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LigneCommande_IDproduit" Association="Self.FK_LigneCommande_IDproduit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Ligne_commande" EntitySet="Ligne_commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignelivraison_IDlignecommande" Association="Self.FK_Lignelivraison_IDlignecommande">
+            <End Role="Ligne_commande" EntitySet="Ligne_commande" />
+            <End Role="Ligne_livraison" EntitySet="Ligne_livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignelivraison_IDlignelivraison" Association="Self.FK_Lignelivraison_IDlignelivraison">
+            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Ligne_livraison" EntitySet="Ligne_livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignevente_IDproduit" Association="Self.FK_Lignevente_IDproduit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Ligne_vente" EntitySet="Ligne_vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lignevente_IDvente" Association="Self.FK_Lignevente_IDvente">
+            <End Role="Vente" EntitySet="Vente" />
+            <End Role="Ligne_vente" EntitySet="Ligne_vente" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GEST_DE_STOCKModelStoreContainer" CdmEntityContainer="GEST_DE_STOCKEntities">
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID_client" ColumnName="ID_client" />
+                <ScalarProperty Name="Nom_client" ColumnName="Nom_client" />
+                <ScalarProperty Name="Prenom_client" ColumnName="Prenom_client" />
+                <ScalarProperty Name="Tel_client" ColumnName="Tel_client" />
+                <ScalarProperty Name="Email_client" ColumnName="Email_client" />
+                <ScalarProperty Name="Adresse_client" ColumnName="Adresse_client" />
+                <ScalarProperty Name="Ville_client" ColumnName="Ville_client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commande">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Commande">
+              <MappingFragment StoreEntitySet="Commande">
+                <ScalarProperty Name="ID_commande" ColumnName="ID_commande" />
+                <ScalarProperty Name="ID_employe" ColumnName="ID_employe" />
+                <ScalarProperty Name="Date_commande" ColumnName="Date_commande" />
+                <ScalarProperty Name="ID_fournisseur" ColumnName="ID_fournisseur" />
+                <ScalarProperty Name="montant_commande" ColumnName="montant_commande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employe">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Employe">
+              <MappingFragment StoreEntitySet="Employe">
+                <ScalarProperty Name="ID_employe" ColumnName="ID_employe" />
+                <ScalarProperty Name="Mdp_user" ColumnName="Mdp_user" />
+                <ScalarProperty Name="Statut_user" ColumnName="Statut_user" />
+                <ScalarProperty Name="Nom_user" ColumnName="Nom_user" />
+                <ScalarProperty Name="Prenom_user" ColumnName="Prenom_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournisseur">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Fournisseur">
+              <MappingFragment StoreEntitySet="Fournisseur">
+                <ScalarProperty Name="ID_fournisseur" ColumnName="ID_fournisseur" />
+                <ScalarProperty Name="Nom_fournisseur" ColumnName="Nom_fournisseur" />
+                <ScalarProperty Name="Adresse_fournisseur" ColumnName="Adresse_fournisseur" />
+                <ScalarProperty Name="Mail_fournisseur" ColumnName="Mail_fournisseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ligne_commande">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Ligne_commande">
+              <MappingFragment StoreEntitySet="Ligne_commande">
+                <ScalarProperty Name="ID_ligne_commande" ColumnName="ID_ligne_commande" />
+                <ScalarProperty Name="ID_commande" ColumnName="ID_commande" />
+                <ScalarProperty Name="ID_produit" ColumnName="ID_produit" />
+                <ScalarProperty Name="Qunatite_commande" ColumnName="Qunatite_commande" />
+                <ScalarProperty Name="Prix_produit" ColumnName="Prix_produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ligne_livraison">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Ligne_livraison">
+              <MappingFragment StoreEntitySet="Ligne_livraison">
+                <ScalarProperty Name="ID_ligne_livraison" ColumnName="ID_ligne_livraison" />
+                <ScalarProperty Name="ID_livraison" ColumnName="ID_livraison" />
+                <ScalarProperty Name="ID_ligne_commande" ColumnName="ID_ligne_commande" />
+                <ScalarProperty Name="Qunatite_livraison" ColumnName="Qunatite_livraison" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ligne_vente">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Ligne_vente">
+              <MappingFragment StoreEntitySet="Ligne_vente">
+                <ScalarProperty Name="ID_ligne_vente" ColumnName="ID_ligne_vente" />
+                <ScalarProperty Name="ID_vente" ColumnName="ID_vente" />
+                <ScalarProperty Name="ID_produit" ColumnName="ID_produit" />
+                <ScalarProperty Name="Quantite_vente" ColumnName="Quantite_vente" />
+                <ScalarProperty Name="Prix_produit" ColumnName="Prix_produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Livraison">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Livraison">
+              <MappingFragment StoreEntitySet="Livraison">
+                <ScalarProperty Name="ID_livraison" ColumnName="ID_livraison" />
+                <ScalarProperty Name="ID_employe" ColumnName="ID_employe" />
+                <ScalarProperty Name="ID_commande" ColumnName="ID_commande" />
+                <ScalarProperty Name="Date_commande" ColumnName="Date_commande" />
+                <ScalarProperty Name="Heure_commande" ColumnName="Heure_commande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produit">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Produit">
+              <MappingFragment StoreEntitySet="Produit">
+                <ScalarProperty Name="ID_produit" ColumnName="ID_produit" />
+                <ScalarProperty Name="Nom_produit" ColumnName="Nom_produit" />
+                <ScalarProperty Name="Date_entrée_stock" ColumnName="Date_entrée_stock" />
+                <ScalarProperty Name="Qte_produit" ColumnName="Qte_produit" />
+                <ScalarProperty Name="Prix_produit" ColumnName="Prix_produit" />
+                <ScalarProperty Name="Image_produit" ColumnName="Image_produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vente">
+            <EntityTypeMapping TypeName="GEST_DE_STOCKModel.Vente">
+              <MappingFragment StoreEntitySet="Vente">
+                <ScalarProperty Name="ID_vente" ColumnName="ID_vente" />
+                <ScalarProperty Name="ID_client" ColumnName="ID_client" />
+                <ScalarProperty Name="ID_employe" ColumnName="ID_employe" />
+                <ScalarProperty Name="Date_vente" ColumnName="Date_vente" />
+                <ScalarProperty Name="Heure_vente" ColumnName="Heure_vente" />
+                <ScalarProperty Name="Prix_vente" ColumnName="Prix_vente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
