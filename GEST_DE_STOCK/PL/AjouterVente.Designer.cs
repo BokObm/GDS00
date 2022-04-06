@@ -1,4 +1,4 @@
-﻿namespace GDS
+﻿namespace GEST_DE_STOCK.PL
 {
     partial class AjouterVente
     {

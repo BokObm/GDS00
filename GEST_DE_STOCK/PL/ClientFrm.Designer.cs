@@ -59,10 +59,11 @@
             this.gunaShadowPanel2.Controls.Add(this.gunaImageButton2);
             this.gunaShadowPanel2.Controls.Add(this.gunaImageButton1);
             this.gunaShadowPanel2.Controls.Add(this.AddButton);
-            this.gunaShadowPanel2.Location = new System.Drawing.Point(168, 3);
+            this.gunaShadowPanel2.Location = new System.Drawing.Point(224, 4);
+            this.gunaShadowPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaShadowPanel2.Name = "gunaShadowPanel2";
             this.gunaShadowPanel2.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel2.Size = new System.Drawing.Size(141, 63);
+            this.gunaShadowPanel2.Size = new System.Drawing.Size(188, 78);
             this.gunaShadowPanel2.TabIndex = 4;
             // 
             // gunaImageButton2
@@ -71,12 +72,14 @@
             this.gunaImageButton2.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
             this.gunaImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.gunaImageButton2.Location = new System.Drawing.Point(97, 14);
+            this.gunaImageButton2.Location = new System.Drawing.Point(129, 17);
+            this.gunaImageButton2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaImageButton2.Name = "gunaImageButton2";
             this.gunaImageButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.OnHoverImage")));
             this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton2.Size = new System.Drawing.Size(36, 36);
+            this.gunaImageButton2.Size = new System.Drawing.Size(48, 44);
             this.gunaImageButton2.TabIndex = 8;
+            this.gunaImageButton2.Click += new System.EventHandler(this.gunaImageButton2_Click);
             // 
             // gunaImageButton1
             // 
@@ -84,12 +87,14 @@
             this.gunaImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
             this.gunaImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.gunaImageButton1.Location = new System.Drawing.Point(55, 14);
+            this.gunaImageButton1.Location = new System.Drawing.Point(73, 17);
+            this.gunaImageButton1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaImageButton1.Name = "gunaImageButton1";
             this.gunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.OnHoverImage")));
             this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton1.Size = new System.Drawing.Size(36, 36);
+            this.gunaImageButton1.Size = new System.Drawing.Size(48, 44);
             this.gunaImageButton1.TabIndex = 7;
+            this.gunaImageButton1.Click += new System.EventHandler(this.gunaImageButton1_Click);
             // 
             // AddButton
             // 
@@ -99,13 +104,15 @@
             this.AddButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageSize = new System.Drawing.Size(35, 35);
-            this.AddButton.Location = new System.Drawing.Point(13, 14);
+            this.AddButton.Location = new System.Drawing.Point(17, 17);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddButton.Name = "AddButton";
             this.AddButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("AddButton.OnHoverImage")));
             this.AddButton.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.AddButton.Size = new System.Drawing.Size(36, 36);
+            this.AddButton.Size = new System.Drawing.Size(48, 44);
             this.AddButton.TabIndex = 6;
             this.AddButton.Tag = "Ajouter";
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // gunaShadowPanel1
             // 
@@ -113,10 +120,11 @@
             this.gunaShadowPanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(93)))), ((int)(((byte)(138)))));
             this.gunaShadowPanel1.Controls.Add(this.gunaComboBox1);
             this.gunaShadowPanel1.Controls.Add(this.gunaTextBox1);
-            this.gunaShadowPanel1.Location = new System.Drawing.Point(417, 3);
+            this.gunaShadowPanel1.Location = new System.Drawing.Point(556, 4);
+            this.gunaShadowPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaShadowPanel1.Name = "gunaShadowPanel1";
             this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(524, 63);
+            this.gunaShadowPanel1.Size = new System.Drawing.Size(699, 78);
             this.gunaShadowPanel1.TabIndex = 5;
             // 
             // gunaComboBox1
@@ -138,11 +146,12 @@
             "Email Client",
             "Adresse Client",
             "Ville Client"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(14, 16);
+            this.gunaComboBox1.Location = new System.Drawing.Point(19, 20);
+            this.gunaComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(194, 26);
+            this.gunaComboBox1.Size = new System.Drawing.Size(257, 31);
             this.gunaComboBox1.TabIndex = 7;
             // 
             // gunaTextBox1
@@ -154,11 +163,12 @@
             this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox1.Location = new System.Drawing.Point(227, 16);
+            this.gunaTextBox1.Location = new System.Drawing.Point(303, 20);
+            this.gunaTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
             this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(283, 26);
+            this.gunaTextBox1.Size = new System.Drawing.Size(377, 37);
             this.gunaTextBox1.TabIndex = 7;
             // 
             // dataGridView1
@@ -196,69 +206,80 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(57)))), ((int)(((byte)(112)))));
-            this.dataGridView1.Location = new System.Drawing.Point(3, 87);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 107);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(1419, 591);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // select
             // 
             this.select.HeaderText = "Sélectionner";
+            this.select.MinimumWidth = 6;
             this.select.Name = "select";
             // 
             // idclient
             // 
             this.idclient.HeaderText = "ID Client";
+            this.idclient.MinimumWidth = 6;
             this.idclient.Name = "idclient";
             this.idclient.ReadOnly = true;
             // 
             // nomclient
             // 
             this.nomclient.HeaderText = "Nom Client";
+            this.nomclient.MinimumWidth = 6;
             this.nomclient.Name = "nomclient";
             this.nomclient.ReadOnly = true;
             // 
             // prenomclient
             // 
             this.prenomclient.HeaderText = "Prénom Client";
+            this.prenomclient.MinimumWidth = 6;
             this.prenomclient.Name = "prenomclient";
             this.prenomclient.ReadOnly = true;
             // 
             // telephoneclient
             // 
             this.telephoneclient.HeaderText = "N° Téléphone";
+            this.telephoneclient.MinimumWidth = 6;
             this.telephoneclient.Name = "telephoneclient";
             this.telephoneclient.ReadOnly = true;
             // 
             // emailclient
             // 
             this.emailclient.HeaderText = "Email Client";
+            this.emailclient.MinimumWidth = 6;
             this.emailclient.Name = "emailclient";
             this.emailclient.ReadOnly = true;
             // 
             // adresseclient
             // 
             this.adresseclient.HeaderText = "Adresse Client";
+            this.adresseclient.MinimumWidth = 6;
             this.adresseclient.Name = "adresseclient";
             this.adresseclient.ReadOnly = true;
             // 
             // villeclient
             // 
             this.villeclient.HeaderText = "Ville Client";
+            this.villeclient.MinimumWidth = 6;
             this.villeclient.Name = "villeclient";
             this.villeclient.ReadOnly = true;
             // 
             // ClientFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gunaShadowPanel1);
             this.Controls.Add(this.gunaShadowPanel2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientFrm";
-            this.Size = new System.Drawing.Size(1070, 570);
+            this.Size = new System.Drawing.Size(1427, 702);
             this.Load += new System.EventHandler(this.ClientFrm_Load);
             this.gunaShadowPanel2.ResumeLayout(false);
             this.gunaShadowPanel1.ResumeLayout(false);

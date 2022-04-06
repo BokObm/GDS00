@@ -33,5 +33,19 @@ namespace GEST_DE_STOCK.PL
         {
 
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            PL.AjouterFournisseur ajoutefourn = new AjouterFournisseur();
+            ajoutefourn.ShowDialog();
+        }
+
+        private void gunaImageButton1_Click(object sender, EventArgs e)
+        {
+            PL.AjouterFournisseur ajoutefourn = new PL.AjouterFournisseur();
+            ajoutefourn.labeltitrefour.Text = "Modifier fournisseur";
+            ajoutefourn.buttonactualiserfour.Visible = false;
+            ajoutefourn.ShowDialog();
+        }
     }
 }

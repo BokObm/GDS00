@@ -1,4 +1,4 @@
-﻿namespace GDS
+﻿namespace GEST_DE_STOCK.PL
 {
     partial class AjouterFournisseur
     {
@@ -31,17 +31,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.idfournisseur = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.adressefournisseur = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.nomfournisseur = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.emailfourniseur = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labeltitrefour = new System.Windows.Forms.Label();
+            this.buttonactualiserfour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,7 +54,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(305, 446);
+            this.button2.Location = new System.Drawing.Point(337, 410);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 40);
             this.button2.TabIndex = 15;
@@ -64,20 +64,21 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(145, 446);
+            this.button1.Location = new System.Drawing.Point(173, 410);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 40);
             this.button1.TabIndex = 14;
             this.button1.Text = "Ajouter";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // idfournisseur
             // 
-            this.textBox1.Location = new System.Drawing.Point(193, 134);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 26);
-            this.textBox1.TabIndex = 22;
+            this.idfournisseur.Location = new System.Drawing.Point(193, 134);
+            this.idfournisseur.Multiline = true;
+            this.idfournisseur.Name = "idfournisseur";
+            this.idfournisseur.Size = new System.Drawing.Size(234, 26);
+            this.idfournisseur.TabIndex = 22;
             // 
             // label1
             // 
@@ -88,13 +89,13 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "ID_Fournisseur :";
             // 
-            // textBox2
+            // adressefournisseur
             // 
-            this.textBox2.Location = new System.Drawing.Point(193, 232);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(234, 60);
-            this.textBox2.TabIndex = 24;
+            this.adressefournisseur.Location = new System.Drawing.Point(193, 232);
+            this.adressefournisseur.Multiline = true;
+            this.adressefournisseur.Name = "adressefournisseur";
+            this.adressefournisseur.Size = new System.Drawing.Size(234, 60);
+            this.adressefournisseur.TabIndex = 24;
             // 
             // label2
             // 
@@ -105,13 +106,13 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Adresse_Fournisseur :";
             // 
-            // textBox3
+            // nomfournisseur
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 183);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(234, 26);
-            this.textBox3.TabIndex = 26;
+            this.nomfournisseur.Location = new System.Drawing.Point(193, 183);
+            this.nomfournisseur.Multiline = true;
+            this.nomfournisseur.Name = "nomfournisseur";
+            this.nomfournisseur.Size = new System.Drawing.Size(234, 26);
+            this.nomfournisseur.TabIndex = 26;
             // 
             // label3
             // 
@@ -122,66 +123,66 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "Nom_Fournisseur :";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(193, 314);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(234, 26);
-            this.textBox4.TabIndex = 28;
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(37, 317);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 16);
+            this.label4.Size = new System.Drawing.Size(0, 16);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Tel_Fournisseur :";
             // 
-            // textBox5
+            // emailfourniseur
             // 
-            this.textBox5.Location = new System.Drawing.Point(193, 363);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(234, 26);
-            this.textBox5.TabIndex = 30;
+            this.emailfourniseur.Location = new System.Drawing.Point(193, 317);
+            this.emailfourniseur.Multiline = true;
+            this.emailfourniseur.Name = "emailfourniseur";
+            this.emailfourniseur.Size = new System.Drawing.Size(234, 26);
+            this.emailfourniseur.TabIndex = 30;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 366);
+            this.label5.Location = new System.Drawing.Point(37, 320);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 16);
             this.label5.TabIndex = 29;
             this.label5.Text = "Mail_Fournisseur :";
             // 
-            // label7
+            // labeltitrefour
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(105, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(262, 32);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Ajouter Fournisseur";
+            this.labeltitrefour.AutoSize = true;
+            this.labeltitrefour.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeltitrefour.Location = new System.Drawing.Point(105, 35);
+            this.labeltitrefour.Name = "labeltitrefour";
+            this.labeltitrefour.Size = new System.Drawing.Size(262, 32);
+            this.labeltitrefour.TabIndex = 31;
+            this.labeltitrefour.Text = "Ajouter Fournisseur";
+            // 
+            // buttonactualiserfour
+            // 
+            this.buttonactualiserfour.Location = new System.Drawing.Point(9, 410);
+            this.buttonactualiserfour.Name = "buttonactualiserfour";
+            this.buttonactualiserfour.Size = new System.Drawing.Size(122, 40);
+            this.buttonactualiserfour.TabIndex = 32;
+            this.buttonactualiserfour.Text = "Actualiser";
+            this.buttonactualiserfour.UseVisualStyleBackColor = true;
+            this.buttonactualiserfour.Click += new System.EventHandler(this.button3_Click);
             // 
             // AjouterFournisseur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 515);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
+            this.ClientSize = new System.Drawing.Size(471, 479);
+            this.Controls.Add(this.buttonactualiserfour);
+            this.Controls.Add(this.labeltitrefour);
+            this.Controls.Add(this.emailfourniseur);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.nomfournisseur);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.adressefournisseur);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.idfournisseur);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -201,16 +202,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox idfournisseur;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox adressefournisseur;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox nomfournisseur;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox emailfourniseur;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label labeltitrefour;
+        public System.Windows.Forms.Button buttonactualiserfour;
     }
 }

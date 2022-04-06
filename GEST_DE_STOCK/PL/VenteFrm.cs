@@ -63,5 +63,11 @@ namespace GEST_DE_STOCK.PL
         {
 
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            PL.AjouterVente ajouteven = new AjouterVente();
+            ajouteven.ShowDialog();
+        }
     }
 }

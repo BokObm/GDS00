@@ -76,7 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\ClientCls.cs" />
     <Compile Include="BL\ConnexionCls.cs" />
+    <Compile Include="BL\FornissuerCls.cs" />
     <Compile Include="Client.cs">
       <DependentUpon>DataBaseStock.tt</DependentUpon>
     </Compile>
@@ -116,7 +118,36 @@
     <Compile Include="Livraison.cs">
       <DependentUpon>DataBaseStock.tt</DependentUpon>
     </Compile>
-
+    <Compile Include="PL\AjouterClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AjouterClient.designer.cs">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\AjouterCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AjouterCommande.designer.cs">
+      <DependentUpon>AjouterCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\AjouterFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AjouterFournisseur.designer.cs">
+      <DependentUpon>AjouterFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\AjouterProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AjouterProduit.designer.cs">
+      <DependentUpon>AjouterProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\AjouterVente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AjouterVente.Designer.cs">
+      <DependentUpon>AjouterVente.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\ClientFrm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +204,21 @@
     <Compile Include="Vente.cs">
       <DependentUpon>DataBaseStock.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PL\AjouterClient.resx">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\AjouterCommande.resx">
+      <DependentUpon>AjouterCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\AjouterFournisseur.resx">
+      <DependentUpon>AjouterFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\AjouterProduit.resx">
+      <DependentUpon>AjouterProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\AjouterVente.resx">
+      <DependentUpon>AjouterVente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\ClientFrm.resx">
       <DependentUpon>ClientFrm.cs</DependentUpon>
     </EmbeddedResource>

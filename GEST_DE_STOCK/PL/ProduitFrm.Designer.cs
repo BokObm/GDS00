@@ -58,10 +58,11 @@
             this.gunaShadowPanel2.Controls.Add(this.gunaImageButton2);
             this.gunaShadowPanel2.Controls.Add(this.gunaImageButton1);
             this.gunaShadowPanel2.Controls.Add(this.AddButton);
-            this.gunaShadowPanel2.Location = new System.Drawing.Point(168, 3);
+            this.gunaShadowPanel2.Location = new System.Drawing.Point(224, 4);
+            this.gunaShadowPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaShadowPanel2.Name = "gunaShadowPanel2";
             this.gunaShadowPanel2.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel2.Size = new System.Drawing.Size(141, 63);
+            this.gunaShadowPanel2.Size = new System.Drawing.Size(188, 78);
             this.gunaShadowPanel2.TabIndex = 2;
             // 
             // gunaImageButton2
@@ -70,11 +71,12 @@
             this.gunaImageButton2.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
             this.gunaImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.gunaImageButton2.Location = new System.Drawing.Point(97, 14);
+            this.gunaImageButton2.Location = new System.Drawing.Point(129, 17);
+            this.gunaImageButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaImageButton2.Name = "gunaImageButton2";
             this.gunaImageButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.OnHoverImage")));
             this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton2.Size = new System.Drawing.Size(36, 36);
+            this.gunaImageButton2.Size = new System.Drawing.Size(48, 44);
             this.gunaImageButton2.TabIndex = 8;
             // 
             // gunaImageButton1
@@ -83,11 +85,12 @@
             this.gunaImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
             this.gunaImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.gunaImageButton1.Location = new System.Drawing.Point(55, 14);
+            this.gunaImageButton1.Location = new System.Drawing.Point(73, 17);
+            this.gunaImageButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaImageButton1.Name = "gunaImageButton1";
             this.gunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.OnHoverImage")));
             this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton1.Size = new System.Drawing.Size(36, 36);
+            this.gunaImageButton1.Size = new System.Drawing.Size(48, 44);
             this.gunaImageButton1.TabIndex = 7;
             // 
             // AddButton
@@ -98,13 +101,15 @@
             this.AddButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageSize = new System.Drawing.Size(35, 35);
-            this.AddButton.Location = new System.Drawing.Point(13, 14);
+            this.AddButton.Location = new System.Drawing.Point(17, 17);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddButton.Name = "AddButton";
             this.AddButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("AddButton.OnHoverImage")));
             this.AddButton.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.AddButton.Size = new System.Drawing.Size(36, 36);
+            this.AddButton.Size = new System.Drawing.Size(48, 44);
             this.AddButton.TabIndex = 6;
             this.AddButton.Tag = "Ajouter";
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // gunaShadowPanel1
             // 
@@ -112,10 +117,11 @@
             this.gunaShadowPanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(93)))), ((int)(((byte)(138)))));
             this.gunaShadowPanel1.Controls.Add(this.gunaComboBox1);
             this.gunaShadowPanel1.Controls.Add(this.gunaTextBox1);
-            this.gunaShadowPanel1.Location = new System.Drawing.Point(417, 3);
+            this.gunaShadowPanel1.Location = new System.Drawing.Point(556, 4);
+            this.gunaShadowPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaShadowPanel1.Name = "gunaShadowPanel1";
             this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(524, 63);
+            this.gunaShadowPanel1.Size = new System.Drawing.Size(699, 78);
             this.gunaShadowPanel1.TabIndex = 3;
             // 
             // gunaComboBox1
@@ -136,11 +142,12 @@
             "Quantité",
             "Heure",
             "Prix"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(14, 16);
+            this.gunaComboBox1.Location = new System.Drawing.Point(19, 20);
+            this.gunaComboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(194, 26);
+            this.gunaComboBox1.Size = new System.Drawing.Size(257, 31);
             this.gunaComboBox1.TabIndex = 7;
             // 
             // gunaTextBox1
@@ -152,11 +159,12 @@
             this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox1.Location = new System.Drawing.Point(227, 16);
+            this.gunaTextBox1.Location = new System.Drawing.Point(303, 20);
+            this.gunaTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
             this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(283, 26);
+            this.gunaTextBox1.Size = new System.Drawing.Size(377, 37);
             this.gunaTextBox1.TabIndex = 7;
             // 
             // dataGridView1
@@ -193,62 +201,72 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(57)))), ((int)(((byte)(112)))));
-            this.dataGridView1.Location = new System.Drawing.Point(3, 87);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 107);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(1419, 591);
             this.dataGridView1.TabIndex = 4;
             // 
             // select
             // 
             this.select.HeaderText = "Sélectionner";
+            this.select.MinimumWidth = 6;
             this.select.Name = "select";
             // 
             // idvente
             // 
             this.idvente.HeaderText = "ID Produit";
+            this.idvente.MinimumWidth = 6;
             this.idvente.Name = "idvente";
             this.idvente.ReadOnly = true;
             // 
             // nomproduit
             // 
             this.nomproduit.HeaderText = "Nom Produit";
+            this.nomproduit.MinimumWidth = 6;
             this.nomproduit.Name = "nomproduit";
             this.nomproduit.ReadOnly = true;
             // 
             // idemploye
             // 
             this.idemploye.HeaderText = "Date Entrée";
+            this.idemploye.MinimumWidth = 6;
             this.idemploye.Name = "idemploye";
             this.idemploye.ReadOnly = true;
             // 
             // idclient
             // 
             this.idclient.HeaderText = "Quantité";
+            this.idclient.MinimumWidth = 6;
             this.idclient.Name = "idclient";
             this.idclient.ReadOnly = true;
             // 
             // heure
             // 
             this.heure.HeaderText = "Heure";
+            this.heure.MinimumWidth = 6;
             this.heure.Name = "heure";
             this.heure.ReadOnly = true;
             // 
             // Prix
             // 
             this.Prix.HeaderText = "Prix";
+            this.Prix.MinimumWidth = 6;
             this.Prix.Name = "Prix";
             this.Prix.ReadOnly = true;
             // 
             // ProduitFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gunaShadowPanel1);
             this.Controls.Add(this.gunaShadowPanel2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProduitFrm";
-            this.Size = new System.Drawing.Size(1070, 570);
+            this.Size = new System.Drawing.Size(1427, 702);
             this.Load += new System.EventHandler(this.ProduitFrm_Load);
             this.gunaShadowPanel2.ResumeLayout(false);
             this.gunaShadowPanel1.ResumeLayout(false);

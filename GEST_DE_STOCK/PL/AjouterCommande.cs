@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GDS
+namespace GEST_DE_STOCK.PL
 {
     public partial class AjouterCommande : Form
     {
