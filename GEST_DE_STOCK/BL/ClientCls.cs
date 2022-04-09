@@ -56,5 +56,16 @@ namespace GEST_DE_STOCK.BL
         {
             throw new NotImplementedException();
         }
+        public void supprimer_client(int ID)
+        {
+            C = new Client();
+            C = db.Client.SingleOrDefault(s => s.ID_client == ID);
+            if(C != null)
+            {
+                db.Client.Remove(C);
+                db.SaveChanges();
+            }
+
+        }
     }
 }

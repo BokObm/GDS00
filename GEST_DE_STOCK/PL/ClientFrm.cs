@@ -29,6 +29,7 @@ namespace GEST_DE_STOCK.PL
         {
             InitializeComponent();
             db = new GEST_DE_STOCKEntities();
+            rechercheclient.Enabled = false;
         }
         public void ActualiserGrid()
         {
@@ -107,11 +108,102 @@ namespace GEST_DE_STOCK.PL
 
         private void gunaImageButton2_Click(object sender, EventArgs e)
         {
+            BL.ClientCls clclient = new BL.ClientCls();
             //pour supprimer tout les client ajouter
+            int select = 0;
             for(int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if((bool)dataGridView1.Rows[i].Cells[0].Value ==true)
+                if((bool)dataGridView1.Rows[i].Cells[0].Value == true)
+                {
+                    select++;
+                }
             }
+            if(select == 0)
+            {
+                MessageBox.Show("aucun client selectionner","suppression",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            if(select > 1)
+            {
+                DialogResult R = MessageBox.Show("Voulez-vous vraiment supprimer", "suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(R == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        if ((bool)dataGridView1.Rows[i].Cells[0].Value == true)
+                        {
+                            clclient.supprimer_client(int.Parse(dataGridView1.Rows[i].Cells[1].Value.ToString()));
+                        }
+                    }
+                    ActualiserGrid();
+                    MessageBox.Show("Suppression avec succes","suppression",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    MessageBox.Show("Suppression annulé", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void gunaTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            db = new GEST_DE_STOCKEntities();
+            var listerecherche = db.Client.ToList();
+            if(combochercheclient.Text != "")
+            {
+                switch (combochercheclient.Text)
+                {
+                    case "Nom Client":
+                        listerecherche = (List<Client>)listerecherche.Where(s => s.Nom_client.IndexOf(rechercheclient.Text, StringComparison.CurrentCultureIgnoreCase) != -1);
+                        //StringComparaison.CurrentCultureIgnore = sois j'ecris la premiere lettre en majuscule sois en minuscule
+                        // != -1 existedans db
+                        break;
+
+                    case "Prénom Client":
+                        listerecherche = (List<Client>)listerecherche.Where(s => s.Prenom_client.IndexOf(rechercheclient.Text, StringComparison.CurrentCultureIgnoreCase) != -1);
+                        //StringComparaison.CurrentCultureIgnore = sois j'ecris la premiere lettre en majuscule sois en minuscule
+                        // != -1 existedans db
+                        break;
+
+                    case "N° Téléphone":
+                        listerecherche = (List<Client>)listerecherche.Where(s => s.Tel_client != -1);
+                        //StringComparaison.CurrentCultureIgnore = sois j'ecris la premiere lettre en majuscule sois en minuscule
+                        // != -1 existedans db
+                        break;
+
+                    case "Email Client":
+                        listerecherche = (List<Client>)listerecherche.Where(s => s.Email_client.IndexOf(rechercheclient.Text, StringComparison.CurrentCultureIgnoreCase) != -1);
+                        //StringComparaison.CurrentCultureIgnore = sois j'ecris la premiere lettre en majuscule sois en minuscule
+                        // != -1 existedans db
+                        break;
+
+                    case "Adresse Client":
+                        listerecherche = (List<Client>)listerecherche.Where(s => s.Adresse_client.IndexOf(rechercheclient.Text, StringComparison.CurrentCultureIgnoreCase) != -1);
+                        //StringComparaison.CurrentCultureIgnore = sois j'ecris la premiere lettre en majuscule sois en minuscule
+                        // != -1 existedans db
+                        break;
+
+                    case "Ville Client":
+                        listerecherche = (List<Client>)listerecherche.Where(s => s.Ville_client.IndexOf(rechercheclient.Text, StringComparison.CurrentCultureIgnoreCase) != -1);
+                        //StringComparaison.CurrentCultureIgnore = sois j'ecris la premiere lettre en majuscule sois en minuscule
+                        // != -1 existedans db
+                        break;
+
+
+                }
+            }
+            dataGridView1.Rows.Clear();
+            //ajouter liste recherche dans data grid view
+            foreach(var l in listerecherche)
+            {
+                dataGridView1.Rows.Add(false, l.ID_client, l.Nom_client, l.Prenom_client, l.Tel_client, l.Email_client, l.Adresse_client, l.Ville_client);
+            }
+        }
+
+        private void combochercheclient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rechercheclient.Enabled = true;
+            rechercheclient.Text = "";
+
         }
     }
 }

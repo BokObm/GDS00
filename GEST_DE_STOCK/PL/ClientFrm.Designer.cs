@@ -36,8 +36,8 @@
             this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
             this.AddButton = new Guna.UI.WinForms.GunaImageButton();
             this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
+            this.combochercheclient = new Guna.UI.WinForms.GunaComboBox();
+            this.rechercheclient = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idclient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,8 +118,8 @@
             // 
             this.gunaShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaShadowPanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(93)))), ((int)(((byte)(138)))));
-            this.gunaShadowPanel1.Controls.Add(this.gunaComboBox1);
-            this.gunaShadowPanel1.Controls.Add(this.gunaTextBox1);
+            this.gunaShadowPanel1.Controls.Add(this.combochercheclient);
+            this.gunaShadowPanel1.Controls.Add(this.rechercheclient);
             this.gunaShadowPanel1.Location = new System.Drawing.Point(556, 4);
             this.gunaShadowPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaShadowPanel1.Name = "gunaShadowPanel1";
@@ -127,18 +127,18 @@
             this.gunaShadowPanel1.Size = new System.Drawing.Size(699, 78);
             this.gunaShadowPanel1.TabIndex = 5;
             // 
-            // gunaComboBox1
+            // combochercheclient
             // 
-            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Items.AddRange(new object[] {
+            this.combochercheclient.BackColor = System.Drawing.Color.Transparent;
+            this.combochercheclient.BaseColor = System.Drawing.Color.White;
+            this.combochercheclient.BorderColor = System.Drawing.Color.Silver;
+            this.combochercheclient.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combochercheclient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combochercheclient.FocusedColor = System.Drawing.Color.Empty;
+            this.combochercheclient.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combochercheclient.ForeColor = System.Drawing.Color.Black;
+            this.combochercheclient.FormattingEnabled = true;
+            this.combochercheclient.Items.AddRange(new object[] {
             "ID Client",
             "Nom Client",
             "Prénom Client",
@@ -146,30 +146,32 @@
             "Email Client",
             "Adresse Client",
             "Ville Client"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(19, 20);
-            this.gunaComboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(257, 31);
-            this.gunaComboBox1.TabIndex = 7;
+            this.combochercheclient.Location = new System.Drawing.Point(19, 20);
+            this.combochercheclient.Margin = new System.Windows.Forms.Padding(4);
+            this.combochercheclient.Name = "combochercheclient";
+            this.combochercheclient.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.combochercheclient.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.combochercheclient.Size = new System.Drawing.Size(257, 31);
+            this.combochercheclient.TabIndex = 7;
+            this.combochercheclient.SelectedIndexChanged += new System.EventHandler(this.combochercheclient_SelectedIndexChanged);
             // 
-            // gunaTextBox1
+            // rechercheclient
             // 
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox1.Location = new System.Drawing.Point(303, 20);
-            this.gunaTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(377, 37);
-            this.gunaTextBox1.TabIndex = 7;
+            this.rechercheclient.BaseColor = System.Drawing.Color.White;
+            this.rechercheclient.BorderColor = System.Drawing.Color.Silver;
+            this.rechercheclient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rechercheclient.FocusedBaseColor = System.Drawing.Color.White;
+            this.rechercheclient.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.rechercheclient.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.rechercheclient.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rechercheclient.Location = new System.Drawing.Point(303, 20);
+            this.rechercheclient.Margin = new System.Windows.Forms.Padding(4);
+            this.rechercheclient.Name = "rechercheclient";
+            this.rechercheclient.PasswordChar = '\0';
+            this.rechercheclient.SelectedText = "";
+            this.rechercheclient.Size = new System.Drawing.Size(377, 37);
+            this.rechercheclient.TabIndex = 7;
+            this.rechercheclient.TextChanged += new System.EventHandler(this.gunaTextBox1_TextChanged);
             // 
             // dataGridView1
             // 
@@ -295,8 +297,8 @@
         private Guna.UI.WinForms.GunaImageButton gunaImageButton1;
         private Guna.UI.WinForms.GunaImageButton AddButton;
         private Guna.UI.WinForms.GunaShadowPanel gunaShadowPanel1;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
+        private Guna.UI.WinForms.GunaComboBox combochercheclient;
+        private Guna.UI.WinForms.GunaTextBox rechercheclient;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn idclient;

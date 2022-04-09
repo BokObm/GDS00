@@ -157,6 +157,7 @@
             this.labeltitrefour.Size = new System.Drawing.Size(262, 32);
             this.labeltitrefour.TabIndex = 31;
             this.labeltitrefour.Text = "Ajouter Fournisseur";
+            this.labeltitrefour.Click += new System.EventHandler(this.labeltitrefour_Click);
             // 
             // buttonactualiserfour
             // 
@@ -202,16 +203,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox idfournisseur;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox adressefournisseur;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox nomfournisseur;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox emailfourniseur;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label labeltitrefour;
         public System.Windows.Forms.Button buttonactualiserfour;
+        public System.Windows.Forms.TextBox idfournisseur;
+        public System.Windows.Forms.TextBox adressefournisseur;
+        public System.Windows.Forms.TextBox nomfournisseur;
+        public System.Windows.Forms.TextBox emailfourniseur;
     }
 }

@@ -79,6 +79,7 @@
     <Compile Include="BL\ClientCls.cs" />
     <Compile Include="BL\ConnexionCls.cs" />
     <Compile Include="BL\FornissuerCls.cs" />
+    <Compile Include="BL\ProduitCls.cs" />
     <Compile Include="Client.cs">
       <DependentUpon>DataBaseStock.tt</DependentUpon>
     </Compile>

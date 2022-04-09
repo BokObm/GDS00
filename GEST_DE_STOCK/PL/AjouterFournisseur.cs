@@ -13,6 +13,7 @@ namespace GEST_DE_STOCK.PL
 {
     public partial class AjouterFournisseur : Form
     {
+        private UserControl usFournisseur;
         public AjouterFournisseur()
         {
             InitializeComponent();
@@ -74,7 +75,7 @@ namespace GEST_DE_STOCK.PL
             adressefournisseur.Text = "";
             emailfourniseur.Text = "";
         }
-
+        public int IDselect;
         private void button1_Click(object sender, EventArgs e)
         {
             if (Testobligatoire() != null)
@@ -82,17 +83,39 @@ namespace GEST_DE_STOCK.PL
                 MessageBox.Show(Testobligatoire(), "Obligatoire", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
+            if (labeltitrefour.Text == "Ajouter fouenisseur")
             {
                 BL.FornissuerCls clfournisseur = new BL.FornissuerCls();
-                if (clfournisseur.Ajouter_Fournisseur(idfournisseur.Text, nomfournisseur.Text, adressefournisseur.Text, emailfourniseur.Text) == true)
+                if (clfournisseur.Ajouter_Fournisseur(nomfournisseur.Text, adressefournisseur.Text, emailfourniseur.Text) == true)
                 {
                     MessageBox.Show("fournisseur ajouter avec succes", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    (usFournisseur as FournisseurFrm).ActualiserGrid();
                 }
                 else
                 {
                     MessageBox.Show("Nom de fournisseur déja existe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                BL.FornissuerCls clfournisseur = new BL.FornissuerCls();
+                DialogResult R = MessageBox.Show("voulez-vous vraiment modifier ce fournisseur", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (R == DialogResult.Yes)
+                {
+                    clfournisseur.Modifier_fournisseur(IDselect, nomfournisseur.Text, adressefournisseur.Text, emailfourniseur.Text);
+                    (usFournisseur as ClientFrm).ActualiserGrid();
+                    MessageBox.Show("fournisseur modifier avec succes", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    MessageBox.Show("Modification est annulé", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void labeltitrefour_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
